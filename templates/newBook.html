@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+			<h1>New Book</h1>
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the book">
+
+					<label for="author">Author:</label>
+					<input type ="text" maxlength="50" class="form-control" name="author"placeholder="Author">
+
+					<label for="published_year">Published year:</label>
+					<input type ="number" min="0" max="2099" step="1" class="form-control" name="published_year" placeholder="Published year">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="1500" rows="10" name="description" placeholder="Description of the book"></textarea>
+
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					Create</button>
+				</div>
+			</form>
+
+			<a href = '{{url_for('showBooks', library_id = library_id)}}'>
+				<button class="btn btn-default delete">Cancel</button>
+			</a>
+			{% endblock %}

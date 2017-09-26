@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+		<div>
+			<h1>Libraries</h1>
+		</div>
+  <div>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+
+				<ul>
+				{% for message in messages %}
+						<li> <strong> {{ message }} </strong> </li>
+				{% endfor %}
+				</ul>
+				{% endif %}
+			{% endwith %}
+	</div>
+	<div>
+		<a href="{{url_for('newLibrary')}}">Add new library</a>
+	</div>
+	{% for library in libraries %}
+	<div>
+		<a href = "{{url_for('showBooks', library_id = library.id)}}">
+		{{library.name}}
+		</a>
+		<!-- <p>{{login_flag}}</p> -->
+	</div>
+	{% endfor %}
+
+	{% endblock %}

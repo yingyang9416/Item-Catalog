@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+			<h1>Edit Book</h1>
+	<div class="row">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="100" class="form-control" name="name" value="{{book.name }}">
+
+					<label for="author">Author:</label>
+					<input type ="text" maxlength="100" class="form-control" name="author" value="{{book.author }}">
+
+					<label for="published_year">Published year:</label>
+					<input type ="integer" maxlength="4" class="form-control" name="published_year" value="{{book.published_year}}">
+
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="1500" rows="10" name="description">{{book.description}}</textarea>
+
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					Save</button>
+	    </form>
+				</div>
+				<a href = '{{url_for('showBooks', library_id = library_id)}}'>
+					<button class="btn btn-default delete">
+					Cancel</button>
+				</a>
+	</div>
+{% endblock %}
