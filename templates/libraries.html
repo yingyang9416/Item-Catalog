@@ -17,12 +17,10 @@
 			{% endwith %}
 	</div>
 
-	{% if session.email %}
 	<a class="a2 white-text blue-background" href="{{url_for('newLibrary')}}">
 		Add new library
 	</a>
 	<!-- <a href="#" style="width:50px; height: 80px; background-color:white;">test</a><span>test1</span> -->
-	{% endif %}
 
 	{% for library in libraries %}
 	<div class="item-library">
