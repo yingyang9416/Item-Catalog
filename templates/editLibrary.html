@@ -3,16 +3,17 @@
 {% include "header.html" %}
 
 	<div class="row banner menu">
-			<h1>Edit {{library.name}}</h1>
+			<h2>Edit {{library.name}}</h2>
+			<div class="opacity-layer"></div>
+
 	</div>
 			<form action="{{ url_for('editLibrary',library_id = library.id)}}" method = "post">
 					<label for="name">Name:</label>
 					<input type ="text" class="form-control" name="name" value="{{library.name }}">
-					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<button type="submit" class="a2 light-green-background white-text" id="submit" type="submit">
 					Save</button>
-					<a href = '{{url_for('showLibraries')}}'>
-						<button class="btn btn-default delete">
-						Cancel</button>
+					<a class="a2 red-background white-text" href = '{{url_for('showLibraries')}}'>
+						Cancel
 					</a>
 			</form>
 {% endblock %}

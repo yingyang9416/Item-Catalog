@@ -8,11 +8,11 @@
 
 		<form action="#" method = "post">
 			<label for="name">Name:</label>
-			<input type ="text" class="form-control" maxlength="100" name="name">
-			<button type="submit" class="btn btn-default" id="submit" type="submit">Create</button>
+			<input type ="text" class="form-control" maxlength="100" name="name" required="required">
+			<button type="submit" class="a2 light-green-background white-text" id="submit" type="submit">Create</button>
+			<!-- <a href="#" onclick="document.getElementById('new_library').submit();" class="a2">Create</a> -->
 		</form>
-		<a href = '{{url_for('showLibraries')}}'>
-			<button class="btn btn-default delete">Cancel</button>
+		<a class="a2 red-background white-text" href = '{{url_for('showLibraries')}}'>Cancel
 		</a>
 
 

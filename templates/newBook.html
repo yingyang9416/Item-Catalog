@@ -6,7 +6,7 @@
 			<form action="#" method = "post">
 				<div class="form-group">
 					<label for="name">Name:</label>
-					<input type ="text" maxlength="50" class="form-control" name="name"placeholder="Name of the book">
+					<input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the book" required="required">
 
 					<label for="author">Author:</label>
 					<input type ="text" maxlength="50" class="form-control" name="author"placeholder="Author">
@@ -17,12 +17,12 @@
 					<label for="description">Description:</label>
 					<textarea class="form-control" maxlength="1500" rows="10" name="description" placeholder="Description of the book"></textarea>
 
-					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<button type="submit" class="a2 light-green-background white-text" id="submit" type="submit">
 					Create</button>
 				</div>
 			</form>
 
-			<a href = '{{url_for('showBooks', library_id = library_id)}}'>
-				<button class="btn btn-default delete">Cancel</button>
+			<a class="a2 red-background white-text" href = '{{url_for('showBooks', library_id = library_id)}}'>
+				Cancel
 			</a>
 			{% endblock %}

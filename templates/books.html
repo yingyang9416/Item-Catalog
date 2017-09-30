@@ -2,17 +2,13 @@
 {% block content %}
 {% include "header.html" %}
 
-	<div class="row banner menu">
-		<div class="col-md-11 col-md-offset-1 padding-none">
-			<h1>{{ library.name }}
-			<figure class="creator">
-				<img src="{{ url_for('static', filename='blank_user.gif') }}">
-				<figcaption>Book creator's name goes here</figcaption>
-			</figure>
-			</h1>
+	<div class="row banner">
+			<h2>{{ library.name }}
+			</h2>
+			<div class="opacity-layer"></div>
 
-		</div>
 	</div>
+
 
 <div class = 'flash'>
 		      {% with messages = get_flashed_messages() %}
@@ -27,39 +23,38 @@
     {% endwith %}
 
 </div>
+
 	<div class="row padding-top padding-bottom">
-			<a href="{{url_for('editLibrary',library_id=library.id)}}">
-				<button class="btn btn-default" id="new-menu-item">
-					Edit Library
-				</button>
-			</a>
-			<a href="{{url_for('newBook',library_id=library.id)}}">
-				<button class="btn btn-default" id="new-menu-item">
-					Add Book
-				</button>
-			</a>
-						<a href="{{url_for('deleteLibrary', library_id = library.id )}}">
-				<button class="btn btn-default delete" id="delete-library">
-					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete Library
-				</button>
-			</a>
-			<a href="{{url_for('showLibraries')}}">
-				<button class="btn btn-default delete" id="delete-library">
-					Go back to library list
-				</button>
+					{% if session.email %}
+					<a class="lib-btn a2 white-text blue-background" href="{{url_for('editLibrary',library_id=library.id)}}">
+							Edit Library
+					</a>
+					<a class="lib-btn a2 white-text blue-background" href="{{url_for('newBook',library_id=library.id)}}">
+							Add Book
+					</a>
+					<a class="lib-btn a2 white-text blue-background" href="{{url_for('deleteLibrary', library_id = library.id )}}">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>Delete Library
+					</a>
+					{% endif %}
+
+			<a class="a2 white-text red-background" href="{{url_for('showLibraries')}}">
+					Back to library list
 			</a>
 	</div>
 
 	{% if books !=[] %}
 	  {% for book in books%}
-		  <div>{{book.name}}</div>
-			<div>Author: {{book.author}}</div>
-			<div>Published year: {{book.published_year}}</div>
-			<div>Description: {{book.description}}</div>
-			<div><a href="{{url_for('editBook',library_id=library.id, book_id=book.id)}}">Edit</a></div>
-			<div><a href="{{url_for('deleteBook',library_id=library.id, book_id=book.id)}}">Delete</a></div>
-
-
+		<div class="book-wrapper">
+		  <div><h3>{{book.name}}</h3></div>
+			<p>Author: {{book.author}}</p>
+			<p>Published year: {{book.published_year}}</p>
+			<p>Description: {{book.description}}</p>
+			{% if session.email %}
+			<a class="a4 light-green-background white-text" href="{{url_for('editBook',library_id=library.id, book_id=book.id)}}">Edit</a>
+			<a class="a4 red-background white-text" href="{{url_for('deleteBook',library_id=library.id, book_id=book.id)}}">
+				<i class="fa fa-trash-o" aria-hidden="true"></i>Delete</a>
+			{% endif %}
+		</div>
 			{% endfor %}
 
 	{% endif %}

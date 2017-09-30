@@ -5,13 +5,14 @@
 
 <form action="#" method = 'post'>
 
-	<button type="submit" class="btn btn-default delete" id="submit" type="submit">Delete</button>
+	<button type="submit" class="a2 light-green-background white-text" id="submit" type="submit">
+		<i class="fa fa-trash-o" aria-hidden="true"></i>Delete</button>
 
 
 </form>
 
-<a href = '{{url_for('showLibraries')}}'>
-	<button class="btn btn-default delete">Cancel</button>
+<a class="a2 red-background white-text" href = '{{url_for('showLibraries')}}'>
+	Cancel
 </a>
 
 {% endblock %}

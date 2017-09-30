@@ -19,13 +19,10 @@
 					<label for="description">Description:</label>
 					<textarea class="form-control" maxlength="1500" rows="10" name="description">{{book.description}}</textarea>
 
-					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<button type="submit" class="a2 light-green-background white-text" id="submit" type="submit">
 					Save</button>
 	    </form>
-				</div>
-				<a href = '{{url_for('showBooks', library_id = library_id)}}'>
-					<button class="btn btn-default delete">
-					Cancel</button>
+				<a class="a2 red-background white-text" href = '{{url_for('showBooks', library_id = library_id)}}'>
+					Cancel
 				</a>
-	</div>
 {% endblock %}

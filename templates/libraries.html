@@ -2,8 +2,7 @@
 {% block content %}
 {% include "header.html" %}
 
-		<div>
-			<h1>Libraries</h1>
+		<div class="banner">
 		</div>
   <div>
 		{% with messages = get_flashed_messages() %}
@@ -17,12 +16,17 @@
 				{% endif %}
 			{% endwith %}
 	</div>
-	<div>
-		<a href="{{url_for('newLibrary')}}">Add new library</a>
-	</div>
+
+	{% if session.email %}
+	<a class="a2 white-text blue-background" href="{{url_for('newLibrary')}}">
+		Add new library
+	</a>
+	<!-- <a href="#" style="width:50px; height: 80px; background-color:white;">test</a><span>test1</span> -->
+	{% endif %}
+
 	{% for library in libraries %}
-	<div>
-		<a href = "{{url_for('showBooks', library_id = library.id)}}">
+	<div class="item-library">
+		<a class="a3" href = "{{url_for('showBooks', library_id = library.id)}}">
 		{{library.name}}
 		</a>
 		<!-- <p>{{login_flag}}</p> -->

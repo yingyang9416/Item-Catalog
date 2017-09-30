@@ -1,15 +1,24 @@
-<div class="row top-menu">
-	<div class="col-md-6">
-		<a href="{{url_for('showLibraries')}}">
-			<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Show All Libraries
+
+
+<div class="header row">
+	<div id="a" class="home col-sm-4">
+		<a class="a1" href="{{url_for('showLibraries')}}">
+			<i class="fa fa-home" aria-hidden="true"></i>Home
 		</a>
 	</div>
-	<div class="col-md-6 text-right">
-		    {% if session.logged_in %}
-					<a href="{{url_for('showLogin')}}">Login</a>
+	<div id="c" class="log-in text-right col-sm-4 float-right">
+		    {% if not session.email %}
+					<a class="a1" href="{{url_for('showLogin')}}">Login</a>
 				{% else %}
-          <a href="#">log out</a>
-        {% endif %}
+				  {% if session.picture%}
+				  <img class="photo-wrapper" src="{{session.picture}}">
+					{% endif %}
 
+          <a class="a1" href="{{url_for('gdisconnect')}}">Log out</a>
+        {% endif %}
 	</div>
+	<div id="b" class="col-sm-4">
+		<div class="h1">Libraries</div>
+	</div>
+
 </div>

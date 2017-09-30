@@ -133,6 +133,7 @@ def gconnect():
 
 @app.route('/gdisconnect')
 def gdisconnect():
+    libraries = session.query(Library).order_by(asc(Library.name))
     access_token = login_session.get('access_token')
  #   access_token = login_session.get('credentials')
     print 'In gdisconnect access token is %s', access_token
@@ -157,7 +158,8 @@ def gdisconnect():
     	response = make_response(json.dumps('Successfully disconnected.'), 200)
     	response.headers['Content-Type'] = 'application/json'
     	print login_session
-    	return response
+    	#return response
+    	return render_template('libraries.html', libraries = libraries)
     else:
 	
     	response = make_response(json.dumps('Failed to revoke token for given user.', 400))
